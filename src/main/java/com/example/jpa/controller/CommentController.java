@@ -40,7 +40,7 @@ public class CommentController {
         return commentRepository.findById(commentId).map(comment -> {
             comment.setText(commentRequest.getText());
             return commentRepository.save(comment);
-        }).orElseThrow(()->new RuntimeException("Comment Id number "+commentId+" not found"));
+        }).orElseThrow(()->new RuntimeException("Comment Id "+commentId+" not found"));
     }
 
     @DeleteMapping("/posts/{postId}/comments/{commentId}")
